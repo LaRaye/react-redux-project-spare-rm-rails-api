@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :hosts, only: [:index, :create, :show, :update, :destroy]
   resources :stays, only: [:index, :create, :show, :update, :destroy]
   resources :guests, only: [:index, :create, :show, :update, :destroy]
+  resources :users, only: [:index, :create, :show, :update, :destroy]
 end
