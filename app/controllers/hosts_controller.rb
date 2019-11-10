@@ -1,5 +1,4 @@
 class HostsController < ApplicationController
-  before_action :find_host, only: [:show, :update, :destroy]
 
   def index
     hosts = Host.all
@@ -8,6 +7,8 @@ class HostsController < ApplicationController
   end
 
   def show
+    host = Host.find(params[:id])
+
     render json: host
   end
 
@@ -22,6 +23,8 @@ class HostsController < ApplicationController
   end
 
   def update
+    host = Host.find(params[:id])
+
     if host.update(host_params)
       render json: host
     else
@@ -30,6 +33,8 @@ class HostsController < ApplicationController
   end
 
   def destroy
+    host = Host.find(params[:id])
+
     if host.destroy
       render json: host.full_name
     else
@@ -38,10 +43,6 @@ class HostsController < ApplicationController
   end
 
   private
-
-  def find_host
-    host = Host.find(params[:id])
-  end
 
   def host_params
     params.require(:host).permit(:first_name, :last_name, :email, :phone)
