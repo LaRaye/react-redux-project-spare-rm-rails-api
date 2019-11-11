@@ -1,5 +1,5 @@
 class Stay < ApplicationRecord
-  belongs_to :host
+  belongs_to :host, optional: true
   belongs_to :guest, optional: true
 
   validates :cost, presence: true
