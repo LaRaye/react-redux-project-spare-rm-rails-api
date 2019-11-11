@@ -6,12 +6,16 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :update, :destroy]
 
   Rails.application.routes.draw do
-    resources :hosts, only: [:show, :new, :create] do
-      resources :stays, only: [:show, :index, :new]
+    resources :stays, only: [:show, :create] do
+      resources :hosts, only: [:show, :index]
     end
 
-    resources :guests, only: [:show, :new, :create] do
-      resources :stays, only: [:show, :index, :new]
+    resources :hosts, only: [:show, :index, :create] do
+      resources :stays, only: [:show, :index, :create]
+    end
+
+    resources :guests, only: [:show, :index, :create] do
+      resources :stays, only: [:show, :index]
     end
   end
 
