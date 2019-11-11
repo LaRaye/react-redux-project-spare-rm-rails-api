@@ -44,6 +44,6 @@ class StaysController < ApplicationController
   private
 
   def stay_params
-    params.require(:stay).permit(:cost, :title, :location)
+    params.require(:stay).permit(:cost, :title, :location, :host_id, :guest_id)
   end
 end
