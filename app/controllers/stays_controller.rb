@@ -1,6 +1,12 @@
 class StaysController < ApplicationController
   def index
-    stays = Stay.all
+    if params[:host_id]
+      stays = Host.find(params[:host_id]).stays
+    elsif params[:guest_id]
+      stays = Guest.find(params[:guest_id]).stays
+    else
+      stays = Stay.all
+    end
 
     render json: stays
   end
