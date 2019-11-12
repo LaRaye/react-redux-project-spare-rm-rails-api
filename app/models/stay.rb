@@ -8,6 +8,10 @@ class Stay < ApplicationRecord
   validates :cost, presence: true
   validates :title, presence: true
   validates :location, presence: true
+  validates :host_first_name, presence: true
+  validates :host_last_name, presence: true
+  validates :host_email, presence: true
+  validates :host_phone, presence: true 
 
   def host_first_name=(host_first_name)
     if !host_first_name.nil? && host_first_name != ""
