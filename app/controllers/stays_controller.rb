@@ -18,7 +18,6 @@ class StaysController < ApplicationController
   end
 
   def create
-    binding.pry
     stay = Stay.new(stay_params)
 
     if stay.save
