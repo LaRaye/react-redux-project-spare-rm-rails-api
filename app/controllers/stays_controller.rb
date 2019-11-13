@@ -18,6 +18,7 @@ class StaysController < ApplicationController
   end
 
   def create
+    binding.pry
     stay = Stay.new(stay_params)
 
     if stay.save
@@ -50,6 +51,6 @@ class StaysController < ApplicationController
   private
 
   def stay_params
-    params.require(:stay).permit(:cost, :title, :location, :host_id, :guest_id)
+    params.require(:stay).permit(:host_first_name, :host_last_name, :host_email, :host_phone, :cost, :title, :location, :type, :number_of_guests, :bedrooms, :baths, :amenities, :about, :host_id, :guest_id)
   end
 end
