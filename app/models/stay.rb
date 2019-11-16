@@ -3,15 +3,15 @@ class Stay < ApplicationRecord
   belongs_to :host, optional: true
   belongs_to :guest, optional: true
 
-  after_initialize :assign_host
+  # after_create :assign_host
 
   validates :cost, presence: true
   validates :title, presence: true
   validates :location, presence: true
-  validates :host_first_name, presence: true
-  validates :host_last_name, presence: true
-  validates :host_email, presence: true
-  validates :host_phone, presence: true
+  # validates :host_first_name, presence: true
+  # validates :host_last_name, presence: true
+  # validates :host_email, presence: true
+  # validates :host_phone, presence: true
 
   def host_first_name=(host_first_name)
     if !host_first_name.nil? && host_first_name != ""
@@ -53,9 +53,18 @@ class Stay < ApplicationRecord
     self.host ? self.host.phone : nil
   end
 
-  def assign_host
-    new_host = Host.find_or_create_by(first_name: @host_first_name, last_name: @host_last_name, email: @host_email, phone: @host_phone)
-    self.host = new_host
-    self.save
-  end
+  # def assign_host
+  #   @host = Host.find(email: @host_email)
+  #
+  #   # if @host
+  #   #   self.host = @host
+  #   #   self.save
+  #   # # else
+  #   # #   @new_host = Host.create(first_name: @host_first_name, last_name: @host_last_name, phone: @host_phone, email: @host_email)
+  #   # #   self.host = @new_host
+  #   # #   self.save
+  #   # end
+  #   binding.pry
+  # end
+
 end

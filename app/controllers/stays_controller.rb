@@ -41,7 +41,7 @@ class StaysController < ApplicationController
     stay = Stay.find(params[:id])
 
     if stay.destroy
-      render json: stay.title
+      render json: stay.id
     else
       render json: {status: 500, message: 'Stay cannot be destroyed'}
     end
