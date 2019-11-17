@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :secrets
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :update, :destroy]
 
   Rails.application.routes.draw do
-  resources :secrets
+
     resources :stays, only: [:show, :create] do
       resources :hosts, only: [:show, :index]
     end
