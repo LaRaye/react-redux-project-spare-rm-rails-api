@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
 
-  resources :users except: [:new, :create]
+  resources :users, only: [:index, :show, :update, :destroy]
   resources :hosts, only: [:index, :create, :show, :update, :destroy]
   resources :stays, only: [:index, :create, :show, :update, :destroy]
   resources :guests, only: [:index, :create, :show, :update, :destroy]
